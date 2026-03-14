@@ -18,4 +18,4 @@ You can customize the brain's complexity in `main.cpp` by modifying the `topolog
 
 ```cpp
 // { Input, [Hidden Layers...], Output }
-// NeuralNetwork nn({2, 8, 8, 1}, 0.1);
+NeuralNetwork nn({2, 8, 8, 1}, 0.1);
