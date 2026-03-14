@@ -1,5 +1,7 @@
 # Simple Neural Network in C++
 
+![Neural Network Graph](https://raw.githubusercontent.com/martinandert/neural-network-graph/master/example.png)
+
 A lightweight, scalable header-only Neural Network implementation in C++. This project demonstrates a generalized architecture capable of learning non-linear logic gates like **XOR**.
 
 ## Features
