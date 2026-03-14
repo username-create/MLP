@@ -1,25 +1,43 @@
-# MLP - Multi-Layer Perceptron C++ Implementation
+MLP - Multi-Layer Perceptron Implementation in C++
+This project is a custom implementation of a Multi-Layer Perceptron (MLP) neural network in C++. It features a flexible architecture, backpropagation training, and sigmoid activation, specifically tested on the XOR logic gate problem.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+Architecture & Topology
+The network supports dynamic topology. In the current main.cpp demonstration, the network is configured as:
 
-A lightweight, header-only focused C++ implementation of a Multi-Layer Perceptron (MLP). This project demonstrates the core concepts of backpropagation and gradient descent without relying on heavy external libraries.
+```cpp
+// { Input, [Hidden Layers...], Output }
+NeuralNetwork nn({2, 8, 8, 1}, 0.1);
+```
+Inputs: 2 (for XOR logic)
 
-## 🚀 Features
-- **Dynamic Topology**: Configure any number of hidden layers and neurons.
-- **Backpropagation**: Optimized weight adjustment using the delta rule.
-- **Sigmoid Activation**: Smooth activation function for non-linear logic learning.
-- **Random Initialization**: Automatic weight randomization for training.
+Hidden Layers: 2 layers with 8 neurons each
 
-## 🛠 Project Structure
-- `NeuralNetwork.hpp`: Class definitions and network architecture.
-- `NeuralNetwork.cpp`: Implementation of feedforward and backpropagation logic.
-- `main.cpp`: Entry point demonstrating the XOR logic gate training.
+Output: 1
 
-## 📈 Sample Output
-After training for 50,000+ epochs, the network successfully learns the XOR logic:
+Learning Rate: 0.1
+
+Features
+Backpropagation: Optimized weight adjustment through gradient descent.
+
+Header-Only Focused: Core logic is clearly separated into NeuralNetwork.hpp and .cpp.
+
+Educational Purpose: Written for clarity to demonstrate how neural networks function at a low level.
+
+Sample Output
+After training for 50,000+ epochs, the network successfully achieves the following results:
 
 ```text
 Input: (0, 0) | Target: 0 | Predict: 0.0012 -> [0]
 Input: (0, 1) | Target: 1 | Predict: 0.9985 -> [1]
 Input: (1, 0) | Target: 1 | Predict: 0.9982 -> [1]
 Input: (1, 1) | Target: 0 | Predict: 0.0021 -> [0]
+```
+How to Run
+Requirement: A C++ compiler (g++, clang, or MSVC).
+
+```bash
+g++ main.cpp NeuralNetwork.cpp -o mlp
+./mlp
+```
+License
+This project is licensed under the MIT License.
