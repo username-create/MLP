@@ -24,6 +24,7 @@ NeuralNetwork nn({2, 8, 8, 1}, 0.1);
 
 ## Sample Output
 After training for 50,000 epochs, the network achieves the following logic:
+
 ```text
 Input: (0, 0) | Target: 0 | Predict: 0.0012 -> [0]
 Input: (0, 1) | Target: 1 | Predict: 0.9985 -> [1]
