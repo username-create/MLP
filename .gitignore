@@ -1,5 +1,5 @@
-a.exe
+*.csv
 *.exe
 *.o
 *.out
-.vscode/
+mnist_model.txt

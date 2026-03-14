@@ -1,45 +1,52 @@
-MLP - Multi-Layer Perceptron Implementation in C++
-This project is a custom implementation of a Multi-Layer Perceptron (MLP) neural network in C++. It features a flexible architecture, backpropagation training, and sigmoid activation, specifically tested on the XOR logic gate problem.
+# MLP-MNIST-from-Scratch 🧠
 
-Architecture & Topology
-The network supports dynamic topology. In the current main.cpp demonstration, the network is configured as:
+A Multi-Layer Perceptron (MLP) neural network implemented in **pure C++** for handwritten digit recognition. This project avoids high-level frameworks like TensorFlow or PyTorch to focus on the fundamental implementation of deep learning algorithms.
 
-```cpp
-// { Input, [Hidden Layers...], Output }
-NeuralNetwork nn({2, 8, 8, 1}, 0.1);
-```
+## 🚀 Technical Highlights
 
-Inputs: 2 (for XOR logic)
+* **Pure C++ Implementation**: Built from scratch, including matrix operations, backpropagation, and weight update logic.
+* **Hardware Acceleration (OpenMP)**: Utilizes multi-threading to significantly optimize training speed for large datasets (60,000 samples).
+* **Model Persistence**: Supports `saveModel` and `loadModel` functionality, allowing for **Warm Starts** by saving trained weights and biases to `.txt` files.
+* **Error Analysis System**: Includes a built-in testing mechanism that captures misclassified samples and visualizes them using ASCII art to help analyze model weaknesses.
+* **Training Optimization**: Implements per-epoch data shuffling using `std::shuffle` and `mt19937` to prevent overfitting.
 
-Hidden Layers: 2 layers with 8 neurons each
+## 📊 Performance
 
-Output: 1
+* **Test Platform**: Intel Core i7-14650HX, 32GB RAM.
+* **Accuracy**:
+    * Training Set: ~100%
+    * Test Set: **> 95%** (Varies based on topology and training epochs).
 
-Learning Rate: 0.1
+## 🛠️ Installation & Usage
 
-Features
-Backpropagation: Optimized weight adjustment through gradient descent.
+### 1. Prepare Data
+Ensure `mnist_train.csv` and `mnist_test.csv` are located in the project root directory.
 
-Header-Only Focused: Core logic is clearly separated into NeuralNetwork.hpp and .cpp.
-
-Educational Purpose: Written for clarity to demonstrate how neural networks function at a low level.
-
-Sample Output
-After training for 50,000+ epochs, the network successfully achieves the following results:
-
-```text
-Input: (0, 0) | Target: 0 | Predict: 0.0012 -> [0]
-Input: (0, 1) | Target: 1 | Predict: 0.9985 -> [1]
-Input: (1, 0) | Target: 1 | Predict: 0.9982 -> [1]
-Input: (1, 1) | Target: 0 | Predict: 0.0021 -> [0]
-```
-
-How to Run
-Requirement: A C++ compiler (g++, clang, or MSVC).
-
+### 2. Compile
 ```bash
-g++ main.cpp NeuralNetwork.cpp -o mlp
-./mlp
+g++ -O3 -fopenmp main.cpp NeuralNetwork.cpp -o mlp_mnist
+```
+
+### 3. Run
+```bash
+./mlp_mnist
+```
+
+## 📂 File Structure
+
+* `main.cpp`: Main logic, including data loading, training loops, and error sampling.
+* `NeuralNetwork.hpp/cpp`: Neural network class handling all mathematical operations and Model I/O.
+* `mnist_model.txt`: Exported weights and biases (generated automatically).
+
+## 🔍 Error Analysis Example
+The program visualizes cases where the AI "tripped," allowing for qualitative analysis:
+```text
+[Error Case] Index: 452
+@@@@@@@@@@@@
+      @@    
+      @@    
+    @@@@    
+Real: [4] | AI guessed: [9]
 ```
 
 License
