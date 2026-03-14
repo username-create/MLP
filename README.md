@@ -4,11 +4,11 @@ This project is a custom implementation of a Multi-Layer Perceptron (MLP) neural
 Architecture & Topology
 The network supports dynamic topology. In the current main.cpp demonstration, the network is configured as:
 
-**main.cpp**
 ```cpp
 // { Input, [Hidden Layers...], Output }
 NeuralNetwork nn({2, 8, 8, 1}, 0.1);
 ```
+
 Inputs: 2 (for XOR logic)
 
 Hidden Layers: 2 layers with 8 neurons each
@@ -27,20 +27,20 @@ Educational Purpose: Written for clarity to demonstrate how neural networks func
 Sample Output
 After training for 50,000+ epochs, the network successfully achieves the following results:
 
-**output**
 ```text
 Input: (0, 0) | Target: 0 | Predict: 0.0012 -> [0]
 Input: (0, 1) | Target: 1 | Predict: 0.9985 -> [1]
 Input: (1, 0) | Target: 1 | Predict: 0.9982 -> [1]
 Input: (1, 1) | Target: 0 | Predict: 0.0021 -> [0]
 ```
+
 How to Run
 Requirement: A C++ compiler (g++, clang, or MSVC).
 
-**bash**
 ```bash
 g++ main.cpp NeuralNetwork.cpp -o mlp
 ./mlp
 ```
+
 License
 This project is licensed under the MIT License.
