@@ -1,31 +1,22 @@
-# Simple Neural Network in C++
+# MLP - Multi-Layer Perceptron C++ Implementation
 
-```text
-[Structure]
-Input (2) -> Hidden (8) -> Hidden (8) -> Output (1)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A lightweight, scalable header-only Neural Network implementation in C++. This project demonstrates a generalized architecture capable of learning non-linear logic gates like **XOR**.
+A lightweight, header-only focused C++ implementation of a Multi-Layer Perceptron (MLP). This project demonstrates the core concepts of backpropagation and gradient descent without relying on heavy external libraries.
 
-## Features
-- **Scalable Topology**: Easily adjust the number of hidden layers and neurons per layer.
-- **Generalized Architecture**: Supports any number of inputs and outputs.
-- **Backpropagation**: Implemented from scratch using the Sigmoid activation function.
-- **Defensive Design**: Includes robust error handling and input validation.
+## 🚀 Features
+- **Dynamic Topology**: Configure any number of hidden layers and neurons.
+- **Backpropagation**: Optimized weight adjustment using the delta rule.
+- **Sigmoid Activation**: Smooth activation function for non-linear logic learning.
+- **Random Initialization**: Automatic weight randomization for training.
 
-## Project Structure
-- `NeuralNetwork.hpp`: Class declaration and structure.
-- `NeuralNetwork.cpp`: Implementation of forward propagation and training logic.
-- `main.cpp`: Test bench for training the XOR truth table.
+## 🛠 Project Structure
+- `NeuralNetwork.hpp`: Class definitions and network architecture.
+- `NeuralNetwork.cpp`: Implementation of feedforward and backpropagation logic.
+- `main.cpp`: Entry point demonstrating the XOR logic gate training.
 
-## How to Configure the Topology
-You can customize the brain's complexity in `main.cpp` by modifying the `topology` vector:
-
-```cpp
-// { Input, [Hidden Layers...], Output }
-NeuralNetwork nn({2, 8, 8, 1}, 0.1);
-
-## Sample Output
-After training for 50,000 epochs, the network achieves the following logic:
+## 📈 Sample Output
+After training for 50,000+ epochs, the network successfully learns the XOR logic:
 
 ```text
 Input: (0, 0) | Target: 0 | Predict: 0.0012 -> [0]
